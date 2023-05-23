@@ -22,6 +22,19 @@ namespace MovieApi
 
             builder.Services.AddHttpClient();
             builder.Services.AddControllers();
+
+            // Configure CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("http://localhost:7083")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+                });
+            });
+
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
