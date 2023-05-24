@@ -25,7 +25,7 @@ namespace MovieApi.Controllers
             _personRepository = personRepository;
         }
 
-        [HttpGet("{personName}")]
+        [HttpGet("get/{personName}")]
         public async Task<ActionResult<IEnumerable<GetMovies>>> GetMoviesByPersonName(string personName)
         {
             var person = await _personRepository.GetByName(personName);
@@ -47,14 +47,14 @@ namespace MovieApi.Controllers
             return Ok(movieDtos);
         }
 
-        [HttpPut("{movieId}/rating/{personId}/{newRating}")]
+        [HttpPut("put/{movieId}/rating/{personId}/{newRating}")]
         public async Task<IActionResult> UpdateRating(int movieId, int personId, int newRating)
         {
             await _movieRepository.UpdateRating(movieId, personId, newRating);
 
             return Ok();
         }
-        [HttpPost]
+        [HttpPost("post")]
         public async Task<IActionResult> CreateMovie(MovieDto request)
         {
             var genre = await _genreRepository.GetByName(request.GenreName);

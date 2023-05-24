@@ -19,7 +19,7 @@ namespace MovieApi.Controllers
             _personGenreRepository = personGenreRepository;
         }
 
-        [HttpPost]
+        [HttpPost("post")]
         public async Task<IActionResult> CreatePersonGenreAsync(CreatePersonGenre createPersonGenre)
         {
             // Get person by name

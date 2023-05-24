@@ -15,7 +15,7 @@ namespace MovieApi.Controllers
             _personRepository = personRepository;
         }
 
-        [HttpGet("GetAllPeople")]
+        [HttpGet("get/GetAllPeople")]
         public async Task<ActionResult<IEnumerable<Person>>> GetAll()
         {
             var persons = await _personRepository.GetAll();

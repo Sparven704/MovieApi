@@ -14,7 +14,7 @@ namespace MovieApi.Controllers
             _genreRepository = genreRepository;
         }
 
-        [HttpGet("{personName}")]
+        [HttpGet("get/{personName}")]
         public async Task<ActionResult<IEnumerable<string>>> GetGenresByPersonName(string personName)
         {
             var genreNames = await _genreRepository.GetGenresByPersonName(personName);

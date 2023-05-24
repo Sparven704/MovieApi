@@ -17,7 +17,7 @@ namespace MovieApi.Controllers
             _repository = repository;
         }
 
-        [HttpGet("genres/{genreName}/movies")]
+        [HttpGet("get/genres/{genreName}/movies")]
         public async Task<ActionResult<List<TMDB>>> GetMoviesByGenre(string genreName)
         {
             // Use the genre name to retrieve the corresponding genre ID
